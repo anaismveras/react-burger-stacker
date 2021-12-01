@@ -12,6 +12,7 @@ export default class BurgerPane extends Component {
             })
             return (
                 <div>
+                    <p>Press the Arrow ingredients will be added Here</p>
                     <ul>{burgerImage}</ul>
                     <button onClick={(e) => this.props.clearBurger(e)}>Clear Burger</button>
                 </div>

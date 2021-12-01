@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import './ingredients.css';
 
 export default class IngredientList extends Component {
 
@@ -8,12 +7,14 @@ export default class IngredientList extends Component {
             return (
                 <div>
                     {ingredient.name}
-                    <button onClick={(e) => this.props.addIngredient(e, ingredient.name)}>></button>
+                    <button className='ingredientButton' onClick={(e) => this.props.addIngredient(e, ingredient.name)}>></button>
                 </div>
             )
         })
         return (
-            <div>
+            <div className='parent'>
+                <p>Ingredients</p>
+                <br />
                 <ul>{BurgerIngredients}</ul>
             </div>
         )

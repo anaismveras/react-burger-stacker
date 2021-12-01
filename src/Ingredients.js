@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import IngredientList from './IngredientList'
 import BurgerPane from './BurgerPane'
-import './ingredients.css';
 
 export default class Ingredients extends Component {
    state = {
@@ -39,14 +38,18 @@ export default class Ingredients extends Component {
 
     render () {
         return (
-            <div>
+            <div className='parent'>
+                <div className='IngredientList'>
                 <IngredientList ingredients={this.state.ingredients} 
                 addIngredient={this.addIngredient}
                 />
+                </div>
+                <div className='BurgerPane'>
                 <BurgerPane 
                 emptyIngredients={this.state.emptyIngredients} 
                 clearBurger={this.clearBurger}
                 />
+                </div>
             </div>
         )
     }
