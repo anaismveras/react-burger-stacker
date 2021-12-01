@@ -1,0 +1,25 @@
+.parent {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+}
+
+.IngredientList {
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 10px;
+    text-align: right;
+}
+
+.BurgerPane {
+    border: 1px solid black;
+    margin: 10px;
+    text-align: center;
+    border-radius: 10px;
+}
+
+.ingredientButton {
+    margin-left: 10px;
+}
