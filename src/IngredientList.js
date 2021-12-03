@@ -3,6 +3,7 @@
 import React, { Component } from 'react'
 import Ingredient from './Ingredient'
 
+console.log('hello')
 export default class IngredientList extends Component {
     render () {
         // here we need to store our group of ingredients(the component)
