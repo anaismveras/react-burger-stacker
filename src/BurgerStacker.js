@@ -21,6 +21,7 @@ const BurgerStacker = props => {
    ]
 )
    const [burgerIngredients, setburgerIngredients] = useState([])
+   const [deleted, setDeleted] = useState(false)
 
 	// add to stack function(maybe passed to child?)
     const addToStack = (e) => {
@@ -36,15 +37,13 @@ const BurgerStacker = props => {
 		}) 
 	}
 
-    // remove from stack
-    const removeFromStack = (e) => {
-        // console.log('old stack', this.state.burgerIngredients)
-        // let newBurgIngArr = this.state.burgerIngredients.filter(ingrs => ingrs.name != e.target.innerText)
-        // console.log('new stack', newBurgIngArr)
-        setburgerIngredients(() => {
-			return burgerIngredients
-        })
-    }
+    //remove from stack
+    // const removeFromStack = (e) => {
+    //     // console.log('old stack', this.state.burgerIngredients)
+    //     // let newBurgIngArr = this.state.burgerIngredients.filter(ingrs => ingrs.name != e.target.innerText)
+    //     // console.log('new stack', newBurgIngArr)
+    //     deleted(true)
+    // }
 
 	// clear burger stack function(maybe passed to child?)
     const clearBurger = () => {
@@ -61,7 +60,7 @@ const BurgerStacker = props => {
                     />
 					<BurgerPane 
                         ingredients={burgerIngredients}
-                        remove={removeFromStack}
+                        // remove={removeFromStack}
                         clear={clearBurger}
                     />
 				</div>

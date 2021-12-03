@@ -3,11 +3,10 @@
 import React, { Component } from 'react'
 
 const Ingredient = props => {
-    
         return (
             <p style={{backgroundColor: props.ingredient.color}} onClick={props.clicky}>
-                { ingredientss.name }
-            </p>
+               { props.ingredient.name }
+             </p>
         )
 }
 

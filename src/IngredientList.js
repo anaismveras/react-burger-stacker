@@ -8,7 +8,7 @@ const IngredientList = props => {
         // here we need to store our group of ingredients(the component)
         let allIngredients = props.ingredients.map(ingredient => (
             <li onClick={props.add}>
-                <Ingredient ingredients={ingredient} />
+                <Ingredient ingredient={ingredient} />
             </li>
         ))
         // then in our return, we'll render those as necessary
