@@ -1,15 +1,13 @@
-// import './App.css';
-// import IngredientList from './IngredientList'
-// import BurgerPane from './BurgerPane'
+import logo from './logo.svg';
+import './App.css';
+import BurgerStacker from './BurgerStacker';
 
-// function App() {
+function App() {
+  return (
+    <div className="App">
+      <BurgerStacker />
+    </div>
+  );
+}
 
-//   return (
-//     <div className="App">
-//       <IngredientList />
-//       <BurgerPane />
-//     </div>
-//   );
-// }
-
-// export default App;
+export default App;
