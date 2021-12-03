@@ -1,74 +1,72 @@
-import React, { Component } from 'react'
+import React, { useState } from 'react'
 import BurgerPane from './BurgerPane'
 import IngredientList from './IngredientList'
 
-export default class BurgerStacker extends Component {
-	// state --> holds ingredients
-	state = {
-		ingredients: [
-			{ name: 'Kaiser Bun', color: 'saddlebrown' },
-			{ name: 'Sesame Bun', color: 'sandybrown' },
-			{ name: 'Gluten Free Bun', color: 'peru' },
-			{ name: 'Lettuce Wrap', color: 'olivedrab' },
-			{ name: 'Beef Patty', color: '#3F250B' },
-			{ name: 'Soy Patty', color: '#3F250B' },
-			{ name: 'Black Bean Patty', color: '#3F250B' },
-			{ name: 'Chicken Patty', color: 'burlywood' },
-			{ name: 'Lettuce', color: 'lawngreen' },
-			{ name: 'Tomato', color: 'tomato' },
-			{ name: 'Bacon', color: 'maroon' },
-			{ name: 'Onion', color: 'lightyellow' },
-			{ name: 'Cheese', color: 'gold' },
-		],
-		burgerIngredients: []
-	}
+const BurgerStacker = props => {
+	const [ingredient] = useState(
+		[
+	   { name: 'Kaiser Bun', color: 'saddlebrown' },
+	   { name: 'Sesame Bun', color: 'sandybrown' },
+	   { name: 'Gluten Free Bun', color: 'peru' },
+	   { name: 'Lettuce Wrap', color: 'olivedrab' },
+	   { name: 'Beef Patty', color: '#3F250B' },
+	   { name: 'Soy Patty', color: '#3F250B' },
+	   { name: 'Black Bean Patty', color: '#3F250B' },
+	   { name: 'Chicken Patty', color: 'burlywood' },
+	   { name: 'Lettuce', color: 'lawngreen' },
+	   { name: 'Tomato', color: 'tomato' },
+	   { name: 'Bacon', color: 'maroon' },
+	   { name: 'Onion', color: 'lightyellow' },
+	   { name: 'Cheese', color: 'gold' },
+   ]
+)
+   const [burgerIngredients, setburgerIngredients] = useState([])
+
 	// add to stack function(maybe passed to child?)
-    addToStack = (e) => {
-        console.log('this is what was clicked', e.target)
+    const addToStack = (e) => {
+        // console.log('this is what was clicked', e.target)
         let ingColor = e.target.style.backgroundColor
-        console.log('is this what I want?', e.target.style.backgroundColor)
+        // console.log('is this what I want?', e.target.style.backgroundColor)
         let ingName = e.target.innerText
-        this.setState({
-					burgerIngredients: [
+		setburgerIngredients( () => {
+			return ([
 						{ name: ingName, color: ingColor },
-                        ...this.state.burgerIngredients
-					]
-				})
-    }
+						...burgerIngredients
+					])
+		}) 
+	}
 
     // remove from stack
-    removeFromStack = (e) => {
-        console.log('old stack', this.state.burgerIngredients)
-        let newBurgIngArr = this.state.burgerIngredients.filter(ingrs => ingrs.name != e.target.innerText)
-        console.log('new stack', newBurgIngArr)
-        this.setState({
-            burgerIngredients: newBurgIngArr
+    const removeFromStack = (e) => {
+        // console.log('old stack', this.state.burgerIngredients)
+        // let newBurgIngArr = this.state.burgerIngredients.filter(ingrs => ingrs.name != e.target.innerText)
+        // console.log('new stack', newBurgIngArr)
+        setburgerIngredients(() => {
+			return burgerIngredients
         })
     }
 
 	// clear burger stack function(maybe passed to child?)
-    clearBurger = () => {
-        this.setState({
-            burgerIngredients: []
-        })
+    const clearBurger = () => {
+        setburgerIngredients([])
     }
 
-	render() {
 		return (
 			<main>
 				<h1>Burger Stacker</h1>
 				<div className='panes'>
 					<IngredientList 
-                        ingredients={this.state.ingredients} 
-                        add={this.addToStack}
+                        ingredients={ingredient} 
+                        add={addToStack}
                     />
 					<BurgerPane 
-                        ingredients={this.state.burgerIngredients}
-                        remove={this.removeFromStack}
-                        clear={this.clearBurger}
+                        ingredients={burgerIngredients}
+                        remove={removeFromStack}
+                        clear={clearBurger}
                     />
 				</div>
 			</main>
 		)
-	}
 }
+
+export default BurgerStacker

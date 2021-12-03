@@ -1,15 +1,14 @@
 // ingredient list will loop over props(ingredients) 
 // produces an Ingredient component for every ingredient in the array
-import React, { Component } from 'react'
+import React, { useState, useEffect } from 'react'
 import Ingredient from './Ingredient'
 
-console.log('hello')
-export default class IngredientList extends Component {
-    render () {
+const IngredientList = props => {
+
         // here we need to store our group of ingredients(the component)
-        let allIngredients = this.props.ingredients.map(ingredient => (
-            <li onClick={this.props.add}>
-                <Ingredient ingredient={ingredient} />
+        let allIngredients = props.ingredients.map(ingredient => (
+            <li onClick={props.add}>
+                <Ingredient ingredients={ingredient} />
             </li>
         ))
         // then in our return, we'll render those as necessary
@@ -21,5 +20,6 @@ export default class IngredientList extends Component {
                 </ul>
             </section>
         )
-    }
 }
+
+export default IngredientList
