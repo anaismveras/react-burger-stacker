@@ -21,7 +21,6 @@ const BurgerStacker = props => {
    ]
 )
    const [burgerIngredients, setburgerIngredients] = useState([])
-   const [deleted, setDeleted] = useState(false)
 
 	// add to stack function(maybe passed to child?)
     const addToStack = (e) => {
